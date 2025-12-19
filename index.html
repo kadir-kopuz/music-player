@@ -4,6 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="containers ">
+      <audio id="audio" src=></audio>
+      <div class="image-cover">
+        <img id="image" src="" alt="" />
+      </div>
+      <div class="song-context">
+        <h2 id="title"></h2>
+        <p id="singer">singer name</p>
+      </div>
+      <div class="progress-bar">
+        <input class="bar-progress" type="range" class="form-range" />
+        <div class="süre"><span id="current-time">0:00</span> <span id="duration">0:00</span></div>
+      </div>
+      <div id="controls">
+        <button class="btn btn-primary rounded-circle" id="prev">
+          <i class="fa-solid fa-backward-step"></i>
+        </button>
+        <button class="btn btn-primary rounded-circle btn-lg mx-2" id="play">
+          <i class="fa-solid fa-play"></i>
+        </button>
+        <button class="btn btn-primary rounded-circle" id="next">
+          <i class="fa-solid fa-forward-step"></i>
+        </button>
+      </div>
+      <div id="footer">
+        <i class="fa-solid fa-volume-high"></i>
+        <input type="range" class="form-range" />
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="music.js"></script>
+    <script src="musicplayer.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
+
+<!-- <audio id="audio" src=></audio>
+        <img id="image" src="" alt="" /> -->
+<!-- <p id="title">a</p>
+        <p id="singer">b</p> -->

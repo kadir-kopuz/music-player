@@ -1,0 +1,61 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #a90432;
+  background: linear-gradient(
+    143deg,
+    rgba(169, 4, 50, 1) 0%,
+    rgba(253, 185, 18, 1) 100%
+  );
+}
+
+.containers {
+  width: 380px;
+  border-radius: 25px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.image-cover {
+  margin-bottom: 25px;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+}
+.image-cover img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.song-context {
+  text-align: center;
+}
+
+.süre {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#footer i {
+  position: relative;
+  right: 10px;
+}
+#controls {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  height: 60px;
+}
