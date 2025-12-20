@@ -55,10 +55,22 @@ body {
 }
 #controls {
   display: flex;
-  text-align: center;
   justify-content: center;
-  height: 60px;
+  align-items: center;
 }
 #volume {
   cursor: pointer;
+}
+
+#prev,
+#next {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+}
+
+#play {
+  width: 70px;
+  height: 70px;
+  font-size: 30px;
 }

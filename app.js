@@ -45,25 +45,23 @@ next.addEventListener("click", () => {
 function prevMusic() {
   player.prev();
   let music = player.getMusic();
+  displayMusic(music);
   playMusic();
 }
 
 function nextMusic() {
   player.next();
   let music = player.getMusic();
+  displayMusic(music);
   playMusic();
 }
 
 function playMusic() {
-  let music = player.getMusic();
-  displayMusic(music);
   container.classList.add("playing");
   i.className = "fa-solid fa-pause";
   audio.play();
 }
 function pauseMusic() {
-  let music = player.getMusic();
-  displayMusic(music);
   container.classList.remove("playing");
   i.className = "fa-solid fa-play";
   audio.pause();
@@ -98,9 +96,11 @@ volumeBar.addEventListener("input", (e) => {
   const volumeValue = e.target.value;
   audio.volume = volumeValue / 100;
   if (audio.volume == 0) {
+    valueState = "mute";
     volume.classList = "fa-solid fa-volume-xmark";
     audio.muted = true;
   } else {
+    valueState = "unmute";
     volume.classList = "fa-solid fa-volume-high mute";
     audio.muted = false;
   }
@@ -118,4 +118,8 @@ volume.addEventListener("click", () => {
     audio.muted = true;
     volumeBar.value = 0;
   }
+});
+
+audio.addEventListener("ended", () => {
+  nextMusic();
 });
