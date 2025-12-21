@@ -23,4 +23,14 @@ class MusicPlayer {
       this.index--;
     }
   }
+
+  random() {
+    const newIndex = Math.floor(Math.random() * this.musicList.length);
+    if (this.index === newIndex) {
+      this.index = (newIndex + 1) % this.musicList.length;
+    } else {
+      this.index = newIndex;
+    }
+    console.log(this.index);
+  }
 }

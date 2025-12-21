@@ -12,6 +12,9 @@ const progressBar = document.querySelector(".bar-progress");
 const volume = document.querySelector("#volume");
 const volumeBar = document.querySelector("#volume-bar");
 const i = document.querySelector("#play i");
+const random = document.querySelector("#random");
+const repeat = document.querySelector("#repeat");
+const info = document.querySelector("#info");
 
 const player = new MusicPlayer(musicList);
 let music = player.getMusic();
@@ -39,7 +42,11 @@ prev.addEventListener("click", () => {
 });
 
 next.addEventListener("click", () => {
-  nextMusic();
+  if (randomMode == 0) {
+    nextMusic();
+  } else {
+    randomSong();
+  }
 });
 
 function prevMusic() {
@@ -90,7 +97,7 @@ progressBar.addEventListener("input", () => {
   audio.currentTime = progressBar.value;
 });
 
-let valueState = "mute";
+let valueState = "unmute";
 
 volumeBar.addEventListener("input", (e) => {
   const volumeValue = e.target.value;
@@ -120,6 +127,47 @@ volume.addEventListener("click", () => {
   }
 });
 
+function randomSong() {
+  player.random();
+  let currentMusic = player.getMusic();
+  displayMusic(currentMusic);
+  playMusic();
+}
+
+let repeatMode = 0;
+
+repeat.addEventListener("click", () => {
+  if (repeatMode == 0) {
+    repeatMode = 1;
+    repeat.classList.add("repeatcss");
+  } else {
+    repeatMode = 0;
+    repeat.classList.remove("repeatcss");
+  }
+});
+
+let randomMode = 0;
+
+random.addEventListener("click", () => {
+  if (randomMode == 0) {
+    randomMode = 1;
+    random.classList.add("randomcss");
+  } else {
+    randomMode = 0;
+    random.classList.remove("randomcss");
+  }
+});
+
 audio.addEventListener("ended", () => {
-  nextMusic();
+  if (repeatMode == 0 && randomMode == 0) {
+    nextMusic();
+  } else if (repeatMode == 1 && randomMode == 0) {
+    audio.value = 0;
+    audio.play();
+  } else if (repeatMode == 0 && randomMode == 1) {
+    randomSong();
+  } else {
+    audio.value = 0;
+    audio.play();
+  }
 });
